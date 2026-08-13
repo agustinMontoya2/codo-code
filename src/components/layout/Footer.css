@@ -1,0 +1,125 @@
+footer {
+  border-top: 1px solid var(--border);
+  padding: clamp(3rem, 6vw, 4.5rem) 0 2rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1.4fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.footer-brand p {
+  margin-top: 1rem;
+  color: var(--muted);
+  max-width: 34ch;
+  font-size: 0.95rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.footer-social a {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.footer-social a:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 1.1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-col a {
+  font-size: 0.95rem;
+  color: var(--body);
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--fg);
+}
+
+.footer-col .c-link {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footer-bottom span:nth-child(2) {
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 820px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,97 @@
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.8rem);
+  border-top: 1px solid var(--border-strong);
+}
+
+.step {
+  padding-top: 1.5rem;
+}
+
+.step-num {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 2.2rem;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+  transition: color 0.25s;
+}
+
+.step:hover .step-num {
+  color: var(--accent-deep);
+}
+
+[data-theme='dark'] .step:hover .step-num {
+  color: var(--accent);
+}
+
+.step h3 {
+  font-size: 1.2rem;
+  margin-top: 1.1rem;
+}
+
+.step p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.process-note {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  background: var(--band);
+  border-radius: var(--radius);
+  padding: clamp(1.6rem, 3.5vw, 2.6rem);
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+}
+
+.process-note svg {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  margin-top: 0.15rem;
+  stroke-width: 2;
+}
+
+.process-note h3 {
+  color: var(--band-fg);
+  font-size: 1.3rem;
+}
+
+.process-note p {
+  color: var(--band-muted);
+  margin-top: 0.4rem;
+  max-width: 62ch;
+}
+
+@media (max-width: 1024px) {
+  .steps {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2.4rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    border-top: none;
+  }
+
+  .step {
+    border-top: 1px solid var(--border-strong);
+    padding-top: 1.4rem;
+  }
+
+  .step-num {
+    font-size: 1.7rem;
+  }
+
+  .process-note {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+}
