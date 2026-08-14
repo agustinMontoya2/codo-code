@@ -275,6 +275,12 @@ h4 {
   flex: none;
 }
 
+.logo img {
+  flex: none;
+  height: 30px;
+  width: auto;
+}
+
 .logo b {
   font-weight: 700;
 }

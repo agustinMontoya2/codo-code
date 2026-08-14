@@ -1,41 +1,44 @@
-import { useEffect, useRef, useState } from 'react'
-import useScrolled from '../../hooks/useScrolled'
-import useTheme from '../../hooks/useTheme'
-import { NAV_LINKS } from '../../data/nav'
-import { CloseIcon, LogoIcon, MenuIcon, MoonIcon, SunIcon } from '../ui/icons'
-import './Navbar.css'
+import { useEffect, useRef, useState } from "react";
+import useScrolled from "../../hooks/useScrolled";
+import useTheme from "../../hooks/useTheme";
+import { NAV_LINKS } from "../../data/nav";
+import { CloseIcon, MenuIcon, MoonIcon, SunIcon } from "../ui/icons";
+import "./Navbar.css";
 
 export default function Navbar() {
-  const scrolled = useScrolled()
-  const { theme, toggleTheme } = useTheme()
-  const [menuOpen, setMenuOpen] = useState(false)
-  const toggleRef = useRef(null)
-  const menuRef = useRef(null)
+  const scrolled = useScrolled();
+  const { theme, toggleTheme } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
-    if (!menuOpen) return
+    if (!menuOpen) return;
     const onKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setMenuOpen(false)
-        if (toggleRef.current) toggleRef.current.focus()
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        if (toggleRef.current) toggleRef.current.focus();
       }
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [menuOpen])
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
 
   useEffect(() => {
-    if (!menuOpen) return
-    const firstLink = menuRef.current && menuRef.current.querySelector('a')
-    if (firstLink) firstLink.focus()
-  }, [menuOpen])
+    if (!menuOpen) return;
+    const firstLink = menuRef.current && menuRef.current.querySelector("a");
+    if (firstLink) firstLink.focus();
+  }, [menuOpen]);
 
   return (
     <>
-      <header id="navbar" className={scrolled ? 'scrolled' : ''}>
+      <header id="navbar" className={scrolled ? "scrolled" : ""}>
         <div className="container nav-inner">
           <a className="logo" href="#inicio" aria-label="Codo Code — inicio">
-            <LogoIcon />
+            <img
+              src={theme === "dark" ? "/favicon-dark.svg" : "/favicon.svg"}
+              alt="logo"
+            />
             <span>
               codo <b>code</b>
             </span>
@@ -54,7 +57,7 @@ export default function Navbar() {
               type="button"
               className="theme-toggle"
               aria-label="Cambiar tema claro/oscuro"
-              aria-pressed={theme === 'dark'}
+              aria-pressed={theme === "dark"}
               onClick={toggleTheme}
             >
               <MoonIcon className="icon-moon" />
@@ -67,7 +70,7 @@ export default function Navbar() {
               ref={toggleRef}
               type="button"
               className="menu-toggle"
-              aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               onClick={() => setMenuOpen((open) => !open)}
@@ -78,7 +81,12 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-      <nav id="mobile-menu" ref={menuRef} aria-label="Menú móvil" className={`mobile-menu${menuOpen ? ' open' : ''}`}>
+      <nav
+        id="mobile-menu"
+        ref={menuRef}
+        aria-label="Menú móvil"
+        className={`mobile-menu${menuOpen ? " open" : ""}`}
+      >
         <ul>
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
@@ -88,10 +96,14 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <a className="btn btn-primary" href="#contacto" onClick={() => setMenuOpen(false)}>
+        <a
+          className="btn btn-primary"
+          href="#contacto"
+          onClick={() => setMenuOpen(false)}
+        >
           Hablemos de tu proyecto
         </a>
       </nav>
     </>
-  )
+  );
 }

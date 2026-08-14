@@ -1,31 +1,46 @@
-import { InstagramIcon, LogoIcon } from '../ui/icons'
-import { NAV_LINKS } from '../../data/nav'
-import { SITE } from '../../data/site'
-import './Footer.css'
+import { InstagramIcon } from "../ui/icons";
+import { NAV_LINKS } from "../../data/nav";
+import { SITE } from "../../data/site";
+import useTheme from "../../hooks/useTheme";
+import "./Footer.css";
 
 const SOCIAL_LINKS = [
-  { href: 'https://www.instagram.com/codo_code.dev', label: 'Instagram', Icon: InstagramIcon },
-]
+  {
+    href: "https://www.instagram.com/codo_code.dev",
+    label: "Instagram",
+    Icon: InstagramIcon,
+  },
+];
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
     <footer>
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
             <a className="logo" href="#inicio" aria-label="Codo Code — inicio">
-              <LogoIcon />
+              <img
+                src={theme === "dark" ? "/favicon-dark.svg" : "/favicon.svg"}
+                alt="logo"
+              />
               <span>
                 codo <b>code</b>
               </span>
             </a>
             <p>
-              Software pensado codo a codo para las necesidades reales de cada negocio. Web, tiendas online y
-              soluciones a medida.
+              Software pensado codo a codo para las necesidades reales de cada
+              negocio. Web, tiendas online y soluciones a medida.
             </p>
             <div className="footer-social">
               {SOCIAL_LINKS.map(({ href, label, Icon }) => (
-                <a href={href} aria-label={label} key={label} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={href}
+                  aria-label={label}
+                  key={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Icon />
                 </a>
               ))}
@@ -50,7 +65,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a className="c-link" href={SITE.whatsapp} target="_blank" rel="noopener noreferrer">
+                <a
+                  className="c-link"
+                  href={SITE.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   WhatsApp
                 </a>
               </li>
@@ -66,5 +86,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

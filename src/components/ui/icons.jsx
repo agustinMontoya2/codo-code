@@ -1,12 +1,3 @@
-export function LogoIcon({ size = 34 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 36 36" aria-hidden="true">
-      <rect x="2" y="2" width="24" height="24" rx="7" fill="var(--fg)" />
-      <rect x="12" y="12" width="22" height="22" rx="7" fill="var(--accent-strong)" />
-    </svg>
-  )
-}
-
 export function ArrowIcon(props) {
   return (
     <svg
