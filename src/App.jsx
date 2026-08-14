@@ -8,8 +8,16 @@ import Projects from './components/sections/Projects'
 import Why from './components/sections/Why'
 import About from './components/sections/About'
 import FinalCta from './components/sections/FinalCta'
+import NotFound from './components/sections/NotFound'
+
+const isNotFound =
+  typeof window !== 'undefined' && !['/', '/index.html'].includes(window.location.pathname)
 
 export default function App() {
+  if (isNotFound) {
+    return <NotFound />
+  }
+
   return (
     <>
       <a className="skip" href="#contenido">
