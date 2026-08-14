@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import useScrolled from "../../hooks/useScrolled";
 import useTheme from "../../hooks/useTheme";
 import { NAV_LINKS } from "../../data/nav";
-import { CloseIcon, LogoIcon, MenuIcon, MoonIcon, SunIcon } from "../ui/icons";
+import { CloseIcon, MenuIcon, MoonIcon, SunIcon } from "../ui/icons";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -35,7 +35,10 @@ export default function Navbar() {
       <header id="navbar" className={scrolled ? "scrolled" : ""}>
         <div className="container nav-inner">
           <a className="logo" href="#inicio" aria-label="Codo Code — inicio">
-            <LogoIcon />
+            <img
+              src={theme === "dark" ? "/favicon-dark.svg" : "/favicon.svg"}
+              alt="logo"
+            />
             <span>
               Codo <b>Code</b>
             </span>

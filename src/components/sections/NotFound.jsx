@@ -1,9 +1,12 @@
 import { useEffect } from "react";
-import { ArrowIcon, LogoIcon } from "../ui/icons";
+import { ArrowIcon } from "../ui/icons";
 import Eyebrow from "../ui/Eyebrow";
+import useTheme from "../../hooks/useTheme";
 import "./NotFound.css";
 
 export default function NotFound() {
+  const { theme } = useTheme();
+
   useEffect(() => {
     document.title = "Codo Code - Página no encontrada";
     window.scrollTo(0, 0);
@@ -14,7 +17,10 @@ export default function NotFound() {
       <section className="notfound-shell">
         <div className="notfound-brand">
           <a className="logo" href="/" aria-label="Codo Code — inicio">
-            <LogoIcon />
+            <img
+              src={theme === "dark" ? "/favicon-dark.svg" : "/favicon.svg"}
+              alt="logo"
+            />
             <span>
               Codo <b>Code</b>
             </span>

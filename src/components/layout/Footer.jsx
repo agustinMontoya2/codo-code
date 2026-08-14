@@ -1,6 +1,7 @@
-import { InstagramIcon, LogoIcon } from "../ui/icons";
+import { InstagramIcon } from "../ui/icons";
 import { NAV_LINKS } from "../../data/nav";
 import { SITE } from "../../data/site";
+import useTheme from "../../hooks/useTheme";
 import "./Footer.css";
 
 const SOCIAL_LINKS = [
@@ -12,13 +13,17 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
     <footer>
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
             <a className="logo" href="#inicio" aria-label="Codo Code — inicio">
-              <LogoIcon />
+              <img
+                src={theme === "dark" ? "/favicon-dark.svg" : "/favicon.svg"}
+                alt="logo"
+              />
               <span>
                 Codo <b>Code</b>
               </span>
