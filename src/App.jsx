@@ -7,6 +7,7 @@ import Process from './components/sections/Process'
 import Projects from './components/sections/Projects'
 import Why from './components/sections/Why'
 import About from './components/sections/About'
+import Faq from './components/sections/Faq'
 import FinalCta from './components/sections/FinalCta'
 import NotFound from './components/sections/NotFound'
 
@@ -32,6 +33,7 @@ export default function App() {
         <Projects />
         <Why />
         <About />
+        <Faq />
         <FinalCta />
       </main>
       <Footer />
