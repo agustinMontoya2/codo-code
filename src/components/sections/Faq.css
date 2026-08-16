@@ -1,0 +1,124 @@
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.faq-intro {
+  grid-column: 1/6;
+  position: sticky;
+  top: 110px;
+  align-self: start;
+}
+
+.faq-intro h2 {
+  font-size: clamp(1.95rem, 3.4vw, 2.6rem);
+  margin-top: 1.1rem;
+  line-height: 1.1;
+}
+
+.faq-intro .lead {
+  margin-top: 1.1rem;
+  color: var(--muted);
+  max-width: 40ch;
+  font-size: 1.02rem;
+}
+
+.faq-intro .faq-cta {
+  margin-top: 2rem;
+}
+
+.faq-list {
+  grid-column: 7/13;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--border-strong);
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-inline: -1rem;
+  padding: 1.35rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  transition: color 0.2s, background 0.2s;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:hover {
+  color: var(--accent-deep);
+  background: var(--surface);
+}
+
+[data-theme='dark'] .faq-item summary:hover {
+  color: var(--accent);
+}
+
+.faq-toggle {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: transform 0.3s, border-color 0.25s, color 0.25s, background 0.25s;
+}
+
+.faq-toggle svg {
+  width: 15px;
+  height: 15px;
+}
+
+.faq-item[open] .faq-toggle {
+  transform: rotate(180deg);
+  border-color: var(--accent-strong);
+  color: var(--accent-deep);
+  background: color-mix(in oklch, var(--accent) 12%, transparent);
+}
+
+[data-theme='dark'] .faq-item[open] .faq-toggle {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.faq-a {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.faq-a > p {
+  margin: 0;
+  padding: 0 0.2rem 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .faq-intro {
+    position: static;
+    grid-column: 1/13;
+    margin-bottom: 1rem;
+  }
+
+  .faq-list {
+    grid-column: 1/13;
+  }
+}
