@@ -1,5 +1,6 @@
 import Reveal from '../ui/Reveal'
 import Eyebrow from '../ui/Eyebrow'
+import { ExternalIcon } from '../ui/icons'
 import './About.css'
 
 const ABOUT_POINTS = [
@@ -7,6 +8,8 @@ const ABOUT_POINTS = [
   'Te explicamos todo en simple, sin jerga.',
   'El proyecto es tuyo. La tecnología, nuestra.',
 ]
+
+const PORTFOLIO_URL = 'https://agustin-montoya.codo-code.dev/'
 
 export default function About() {
   return (
@@ -35,6 +38,25 @@ export default function About() {
               </li>
             ))}
           </ul>
+          <Reveal className="about-person" delay={0.2}>
+            <p className="p-label">Detrás de Codo Code</p>
+            <h3>
+              Agustín <span>— Fundador de Codo Code</span>
+            </h3>
+            <p className="bio">
+              Soy quien está detrás de cada proyecto, de la primera idea a la puesta en marcha: te escucho, lo pienso
+              con vos y me encargo de que funcione. Sin intermediarios ni mensajes corporativos.
+            </p>
+            <a
+              className="link-arrow"
+              href={PORTFOLIO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Mi portfolio
+              <ExternalIcon />
+            </a>
+          </Reveal>
         </Reveal>
       </div>
     </section>
