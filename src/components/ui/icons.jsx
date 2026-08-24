@@ -17,6 +17,25 @@ export function ArrowIcon(props) {
   )
 }
 
+export function ExternalIcon(props) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M13 3 4 12M9 3h4v4" />
+    </svg>
+  )
+}
+
 export function ChevronDownIcon(props) {
   return (
     <svg
