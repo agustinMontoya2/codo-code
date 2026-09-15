@@ -67,6 +67,19 @@ export const PROJECTS: Project[] = [
     link: "https://vessel-cafe.codo-code.dev",
   },
   {
+    id: "siete-chukis",
+    bar: "Presencia online",
+    chip: "Landing page",
+    title: "Los Siete Chukis",
+    desc: "Heladería artesanal sin presencia digital: los precios, sabores y turnos se manejaban por Instagram y WhatsApp sin un solo lugar centralizado.",
+    tags: ["Landing page", "Catálogo de productos"],
+    result:
+      "los clientes ven el catálogo completo de helados, milkshakes y tortas con precios, reservan turnos por WhatsApp y descubren la ubicación y horarios actualizados.",
+    image: "/proyects/siete-chukis.webp",
+    imageAlt: "Los Siete Chukis",
+    link: "https://siete-chukis.codo-code.dev",
+  },
+  {
     id: "team-rayo-gym",
     bar: "Gestión deportiva",
     chip: "Web app",
