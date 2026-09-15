@@ -1,11 +1,19 @@
 import Reveal from "../ui/Reveal";
 import Eyebrow from "../ui/Eyebrow";
 import LinkArrow from "../ui/LinkArrow";
-import { ResultCheckIcon } from "../ui/icons";
+import { ResultCheckIcon, ExternalIcon, LockIcon } from "../ui/icons";
 import { PROJECTS } from "../../data/projects";
 import "./Projects.css";
 
-function BarHeader({ chip, online = false }) {
+const urlHost = (url) => {
+  try {
+    return new URL(url).host;
+  } catch {
+    return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  }
+};
+
+function BarHeader({ chip, link, linkLabel, online = false }) {
   return (
     <div className="pv-bar">
       <span className="pv-dots">
@@ -17,7 +25,25 @@ function BarHeader({ chip, online = false }) {
         <i className={online ? "on" : ""} />
         {chip}
       </span>
-      <span className="pv-barline" />
+      {link ? (
+        <>
+          <span className="pv-url">
+            <LockIcon />
+            <span className="pv-url-text">{urlHost(link)}</span>
+          </span>
+          <a
+            className="pv-visit"
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ExternalIcon />
+            {linkLabel ?? "Ver"}
+          </a>
+        </>
+      ) : (
+        <span className="pv-barline" />
+      )}
     </div>
   );
 }
@@ -50,6 +76,8 @@ function Project({
   desc,
   tags,
   result,
+  link,
+  linkLabel,
   delay = 0,
 }) {
   return (
@@ -59,13 +87,19 @@ function Project({
       delay={delay}
     >
       <div className="pv" aria-hidden={image ? undefined : "true"}>
-        <BarHeader chip={bar} online={featured} />
+        <BarHeader
+          chip={bar}
+          link={link && !upcoming && image ? link : undefined}
+          linkLabel={linkLabel}
+          online={featured}
+        />
         {image ? (
           <img
             className="pv-shot"
             src={image}
             alt={imageAlt ?? title}
             loading="lazy"
+            decoding="async"
           />
         ) : (
           <MockVisual />
@@ -94,12 +128,9 @@ function Project({
   );
 }
 
-const featuredIndex =
-  PROJECTS.findIndex((project) => project.featured) === -1
-    ? 0
-    : PROJECTS.findIndex((project) => project.featured);
-const FEATURED = PROJECTS[featuredIndex];
-const STACK = PROJECTS.filter((_, index) => index !== featuredIndex);
+const featuredIndex = PROJECTS.findIndex((project) => project.featured);
+const FEATURED = PROJECTS[featuredIndex === -1 ? 0 : featuredIndex];
+const STACK = PROJECTS.filter((project) => project !== FEATURED);
 
 export default function Projects() {
   return (

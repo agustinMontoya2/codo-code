@@ -36,6 +36,26 @@ export function ExternalIcon(props) {
   )
 }
 
+export function LockIcon(props) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" />
+      <path d="M5.5 7V5.5a2.5 2.5 0 0 1 5 0V7" />
+    </svg>
+  )
+}
+
 export function ChevronDownIcon(props) {
   return (
     <svg
